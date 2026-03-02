@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>widenext</title>
+  </head>
+  <body class="home font-sans">
+    <!-- Header Section -->
+     <header class="header">
+       <div class="container mx-auto px-6 flex items-center justify-between">
+        <div class="logo w-[70px]">
+          <img src="/public/Images/logo.png" alt="Widenext Logo" />
+        </div>
+        <nav class="nav">
+          <ul class="nav-list uppercase font-bold text-base md:text-lg">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Works</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="md:hidden menu-toggle">
+          <span class="menu-toggle-icon">==</span>
+        </div>
+        <div>
+          <a href="mailto:widenext@gmail.com" class="email-link">widenext@gmail.com</a>
+        </div>
+       </div>
+     
+     </header>
+
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden">
+      <!-- Video Background -->
+      <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          class="absolute top-0 left-0 w-full h-full object-cover"
+      >
+          <source src="your-video-file.mp4" type="video/mp4">
+          <!-- Add additional source formats for better browser support -->
+          <source src="your-video-file.webm" type="video/webm">
+          Your browser does not support the video tag.
+      </video>
+      
+      <!-- Content Container -->
+      <div class="relative z-10 h-full flex flex-col justify-between items-center">
+          
+          <!-- Logo at Bottom - Full Width -->
+          <div class="w-full">
+              <img 
+                  src="/public/Images/logo-large-2x.png" 
+                  alt="Company Logo" 
+                  class="w-full h-auto"
+              >
+          </div>
+      </div>
+  </section>
+
+
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
