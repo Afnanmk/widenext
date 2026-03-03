@@ -1,77 +1,660 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>widenext</title>
-  </head>
-  <body class="home font-sans">
-    <!-- Header Section -->
-     <header class="header">
-       <div class="container mx-auto px-6 flex items-center justify-between">
-        <div class="logo w-[70px]">
-          <img src="/public/Images/logo.png" alt="Widenext Logo" />
-        </div>
-        <nav class="nav">
-          <ul class="nav-list uppercase font-bold text-base md:text-lg">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Works</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="md:hidden menu-toggle">
-          <span class="menu-toggle-icon">==</span>
-        </div>
-        <div>
-          <a href="mailto:widenext@gmail.com" class="email-link">widenext@gmail.com</a>
-        </div>
-       </div>
-     
-     </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>widenext</title>
+
+  <style>
+
+  </style>
+</head>
 
 
-    <!-- Hero Section -->
-    <section class="relative h-screen w-full overflow-hidden">
-      <!-- Video Background -->
-      <video 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          class="absolute top-0 left-0 w-full h-full object-cover"
-      >
-          <source src="your-video-file.mp4" type="video/mp4">
-          <!-- Add additional source formats for better browser support -->
-          <source src="your-video-file.webm" type="video/webm">
-          Your browser does not support the video tag.
-      </video>
-      
-      <!-- Content Container -->
-      <div class="relative z-10 h-full flex flex-col justify-between items-center">
-          
-          <!-- Logo at Bottom - Full Width -->
-          <div class="w-full">
-              <img 
-                  src="/public/Images/logo-large-2x.png" 
-                  alt="Company Logo" 
-                  class="w-full h-auto"
-              >
-          </div>
+<body class="home font-sans scroll-smooth">
+  <!-- Header Section -->
+  <header class="header absolute top-0 left-0 w-full z-10 pt-4">
+    <div class="container mx-auto px-6 flex items-center justify-between text-white">
+      <div class="logo w-[70px]">
+        <img src="/public/Images/logo.png" alt="Widenext Logo" />
       </div>
+      <nav class="nav">
+        <ul class="nav-list uppercase font-bold text-base md:text-lg">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Works</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="md:hidden menu-toggle">
+        <span class="menu-toggle-icon">==</span>
+      </div>
+      <div>
+        <a href="mailto:widenext@gmail.com" class="email-link">widenext@gmail.com</a>
+
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- Hero Section -->
+  <section class="hero relative h-screen w-full overflow-hidden" id="hero">
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+      <source src="/public/videos/blue-bg.mp4" type="video/mp4">
+      <!-- Add additional source formats for better browser support -->
+      <source src="/public/videos/blue-bg.mp4" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Content Container -->
+    <div class="relative z-10 h-full flex flex-col justify-end items-center">
+
+      <!-- Logo at Bottom - Full Width -->
+      <div class="w-full">
+        <img src="/public/Images/logo-large-2x.png" alt="Company Logo" class="w-full h-auto">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Works/projects section -->
+  <section class="works">
+
+  </section>
+
+
+  <!-- Video section -->
+  <section class="video-section relative min-h-screen w-full flex items-center justify-center py-10">
+    
+    <!-- Video Container - Animated on Scroll -->
+    <div class="w-full flex items-center justify-center">
+      <div id="videoContainer" class="transform scale-[0.7] transition-all duration-1000 ease-out">
+        <video autoplay loop muted playsinline class="w-full max-w-4xl rounded-[30px] shadow-2xl">
+          <source src="/public/videos/5192157-sd_960_540_30fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+ 
+</section>
+
+
+
+  <!-- Services section -->
+  <section class="services px-4">
+    <div class="bg-[#264BFF] rounded-[30px]">
+      <div class="container mx-auto px-4 lg:px-8 py-20 space-y-20">
+        <!-- STRATEGY -->
+        <div class="service-item" data-service="strategy">
+          <div class="service-title cursor-pointer relative z-[1]">
+            <p class="text-white text-[7.5rem] leading-[3.3125rem] uppercase">STRATEGY</p>
+          </div>
+          <div class="service-content flex gap-10 relative z-[0]">
+            <!-- video -->
+            <div class="rounded-2xl max-w-[650px]">
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+                class="w-full h-full rounded-2xl"></video>
+            </div>
+            <!-- description -->
+            <div class="mt-20 max-w-[650px]">
+              <p class="text-white text-[6.2rem] leading-[3.3125rem]">01</p>
+              <div class="my-7 space-y-3">
+                <p class="text-white text-lg font-semibold opacity-80">From strategy to impact</p>
+                <p class="text-white text-sm opacity-80">We start with clarity uncovering insight, defining direction,
+                  and building strategies designed to create real measurable impact.</p>
+              </div>
+              <div class="bg-black rounded-full py-3 px-4 w-fit">
+                <a href="#" class="text-white font-semibold text-sm md:text-base block uppercase">Start a project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- CREATIVE -->
+        <div class="service-item" data-service="creative">
+          <!-- title -->
+          <div class="service-title cursor-pointer relative z-[1]">
+            <p class="text-white text-[7.5rem] leading-[3.3125rem] uppercase">CREATIVE</p>
+          </div>
+          <!-- content -->
+          <div class="service-content flex gap-10 relative z-[0]">
+            <!-- video -->
+            <div class="rounded-2xl max-w-[650px]">
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+                class="w-full h-full rounded-2xl"></video>
+            </div>
+            <!-- description -->
+            <div class="mt-20 max-w-[650px]">
+              <p class="text-white text-[6.2rem] leading-[3.3125rem]">02</p>
+              <div class="my-7 space-y-3">
+                <p class="text-white text-lg font-semibold opacity-80">From strategy to impact</p>
+                <p class="text-white text-sm opacity-80">We start with clarity uncovering insight, defining direction,
+                  and building strategies designed to create real measurable impact.</p>
+              </div>
+              <div class="bg-black rounded-full py-3 px-4 w-fit">
+                <a href="#" class="text-white font-semibold text-sm md:text-base block uppercase">Start a project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- SOCIAL & DIGITAL -->
+        <div class="service-item" data-service="social-digital">
+          <div class="service-title cursor-pointer relative z-[1]">
+            <p class="text-white text-[7.5rem] leading-[3.3125rem] uppercase">SOCIAL & DIGITAL</p>
+          </div>
+          <div class="service-content flex gap-10 relative z-[0]">
+            <!-- video -->
+            <div class="rounded-2xl max-w-[650px]">
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+                class="w-full h-full rounded-2xl"></video>
+            </div>
+            <!-- description -->
+            <div class="mt-20 max-w-[650px]">
+              <p class="text-white text-[6.2rem] leading-[3.3125rem]">03</p>
+              <div class="my-7 space-y-3">
+                <p class="text-white text-lg font-semibold opacity-80">From strategy to impact</p>
+                <p class="text-white text-sm opacity-80">We start with clarity uncovering insight, defining direction,
+                  and building strategies designed to create real measurable impact.</p>
+              </div>
+              <div class="bg-black rounded-full py-3 px-4 w-fit">
+                <a href="#" class="text-white font-semibold text-sm md:text-base block uppercase">Start a project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- MEDIA -->
+        <div class="service-item" data-service="media">
+          <div class="service-title cursor-pointer relative z-[1]">
+            <p class="text-white text-[7.5rem] leading-[3.3125rem] uppercase">MEDIA</p>
+          </div>
+          <div class="service-content flex gap-10 relative z-[0]">
+            <!-- video -->
+            <div class="rounded-2xl max-w-[650px]">
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+                class="w-full h-full rounded-2xl"></video>
+            </div>
+            <!-- description -->
+            <div class="mt-20 max-w-[650px]">
+              <p class="text-white text-[6.2rem] leading-[3.3125rem]">04</p>
+              <div class="my-7 space-y-3">
+                <p class="text-white text-lg font-semibold opacity-80">From strategy to impact</p>
+                <p class="text-white text-sm opacity-80">We start with clarity uncovering insight, defining direction,
+                  and building strategies designed to create real measurable impact.</p>
+              </div>
+              <div class="bg-black rounded-full py-3 px-4 w-fit">
+                <a href="#" class="text-white font-semibold text-sm md:text-base block uppercase">Start a project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- EVENTS -->
+        <div class="service-item" data-service="events">
+          <div class="service-title cursor-pointer relative z-[1]">
+            <p class="text-white text-[7.5rem] leading-[3.3125rem] uppercase">EVENTS</p>
+          </div>
+          <div class="service-content flex gap-10 relative z-[0]">
+            <!-- video -->
+            <div class="rounded-2xl max-w-[650px]">
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+                class="w-full h-full rounded-2xl"></video>
+            </div>
+            <!-- description -->
+            <div class="mt-20 max-w-[650px]">
+              <p class="text-white text-[6.2rem] leading-[3.3125rem]">05</p>
+              <div class="my-7 space-y-3">
+                <p class="text-white text-lg font-semibold opacity-80">From strategy to impact</p>
+                <p class="text-white text-sm opacity-80">We start with clarity uncovering insight, defining direction,
+                  and building strategies designed to create real measurable impact.</p>
+              </div>
+              <div class="bg-black rounded-full py-3 px-4 w-fit">
+                <a href="#" class="text-white font-semibold text-sm md:text-base block uppercase">Start a project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About section -->
+  <section class="about relative py-20 bg-[#F7F7F7] overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8">
+      <h1 class="text-[64px] leading-[32px] text-[#264BFF] uppercase">About</h1>
+      
+      <!-- Video Container with Shadow Effect -->
+      <div class="relative mt-8">
+        <div id="aboutVideo" class="relative transform translate-y-[-100%] opacity-0 transition-all duration-1000 ease-out rounded-2xl overflow-hidden">
+          <video autoplay loop muted playsinline class="w-full h-[500px] object-cover">
+            <source src="/public/videos/5192157-sd_960_540_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+          <!-- Shadow Overlay Effect - Stronger fade with rounded corners -->
+          <div class="absolute inset-0 pointer-events-none" style="
+            background: 
+              linear-gradient(to right, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%),
+              linear-gradient(to bottom, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%);
+          "></div>
+        </div>
+        
+        <!-- Logo and See More - Overlaying the video -->
+        <div class="absolute top-[-100px] right-[-50px] z-10 flex justify-end w-full p-8">
+          <div class="max-w-[684px] flex flex-col items-end">
+            <img src="/Images/blue-logo-large.png" alt="widenext logo">
+            <a href="#" class="mt-4 underline text-[#41455D] font-bold text-lg">See More</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="space-y-10 text-[#676D8B] text-[2rem] leading-[3.3125rem] mt-10">
+        <p>Our approach is driven by curiosity, research, and hands-on exploration. We support brands in navigating new
+          technologies and transforming them into meaningful, human-centered experiences that leave a lasting impact.
+        </p>
+        <p>Every solution we design is shaped through close collaboration with our clients and creative partners —
+          aligning ideas, refining details, and bringing visions to life with purpose and precision.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sponsors section -->
+  <section class="sponsors py-10 space-y-20">
+    <div class="overflow-hidden w-full">
+      <div class="flex animate-scroll-horizontal whitespace-nowrap">
+        <!-- Original logos -->
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <!-- Duplicate logos for seamless looping -->
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+      </div>
+    </div>
+
+    <div class="overflow-hidden w-full">
+      <div class="flex animate-scroll-horizontal-reverse whitespace-nowrap">
+        <!-- Original logos -->
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <!-- Duplicate logos for seamless looping -->
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+      </div>
+    </div>
   </section>
 
 
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <!-- Team Section -->
+  <section class="team bg-cover bg-center bg-no-repeat" style="background-image: url('/Images/team/team-bg.jpg');">
+    <div class="container mx-auto px-4 lg:px-14 flex items-center gap-20">
+      <div class="flex gap-2">
+        <div class="overflow-hidden max-w-[840px] h-[700px]">
+          <div class="flex flex-col animate-scroll-vertical whitespace-nowrap">
+            <!-- First column of team members -->
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+
+            <!-- Duplicate column for seamless loop -->
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="overflow-hidden max-w-[840px] h-[700px]">
+          <div class="flex flex-col animate-scroll-vertical-reverse whitespace-nowrap">
+            <!-- First column of team members -->
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+
+            <!-- Duplicate column for seamless loop -->
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+            <div>
+              <img src="/Images/team/member1.png" alt="Member 1" class="w-72">
+              <div class="text-center transform translate-y-[-30px]">
+                <h3 class="text-white text-2xl font-semibold">Anas Berjawi</h3>
+                <p class="text-white text-base opacity-80">CEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team section title and description -->
+      <div class="max-w-[750px] flex flex-col gap-28">
+        <h1 class="text-[6rem] leading-[3.3125rem] text-white uppercase font-bold transform translate-x-[-140px]">Our
+          Team</h1>
+        <p class="max-w-[542px] text-white text-[1.5rem] leading-[2.4375rem] opacity-80">We are multicultural by design
+          with diverse perspectives, global expertise, and deep local market understanding, where international thinking
+          meets on-the-ground insight to create work that truly resonates.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact section -->
+  <section class="contact py-10 bg-[#F3F4F9]">
+    <div class="container mx-auto px-4 lg:px-8">
+      <!-- title and description -->
+      <div class="flex gap-5 justify-between">
+        <h1 class="text-[6rem] leading-[6.4375rem] text-[#0A0A0A] uppercase">Lets work together.</h1>
+        <p class="max-w-[530px] text-[#41455D] text-[1.5rem] leading-[2rem] opacity-80">Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit.Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+      </div>
+
+      <!-- form and info -->
+      <div class="flex gap-20 mt-10 justify-between">
+        <div class="w-full">
+          <form action="" class="flex flex-col gap-9">
+            <div class="flex gap-4">
+              <input type="text" placeholder="Name"
+                class="w-full h-[52px] px-4 rounded-[20px] border-b border-[#E4E4E4] bg-transparent">
+              <input type="email" placeholder="Email"
+                class="w-full h-[52px] px-4 rounded-[20px] border-b border-[#E4E4E4] bg-transparent">
+            </div>
+            <select name="subject" id="subject"
+              class="w-full h-[52px] px-4 rounded-[20px] border-b border-[#E4E4E4] bg-transparent">
+              <option value="1">Subject</option>
+              <option value="2">Subject</option>
+              <option value="3">Subject</option>
+              <option value="4">Subject</option>
+              <option value="5">Subject</option>
+            </select>
+            <textarea type="text" placeholder="Message"
+              class="w-full h-[100px] px-4 rounded-[20px] border-b border-[#E4E4E4] bg-transparent"></textarea>
+              <button type="submit" class="send-button group relative overflow-hidden w-fit bg-gradient-to-r from-[#1e3a8a] to-black text-white font-bold text-lg px-10 py-4 rounded-full transition-all duration-500 hover:shadow-2xl">
+                <span class="relative z-10 flex items-center gap-3">
+                  <span>SEND</span>
+                  <svg class="arrow w-6 h-6 transition-all duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+                
+                <!-- Blue overlay with curved edge -->
+                <span class="blue-overlay absolute inset-0 transition-all duration-500 ease-out"></span>
+              </button>
+          </form>
+        </div>
+        <!-- info -->
+        <div class="max-w-[370px] space-y-6">
+          <div class="bg-white px-8 py-5 rounded-[24px] flex flex-col gap-3">
+            <p class="text-sm uppercase opacity-50">Email Address</p>
+            <a href="mailto:widenext@gmail.com" class="uppercase">widenext@gmail.com</a>
+          </div>
+
+          <div class="bg-white px-8 py-5 rounded-[24px] flex flex-col gap-3">
+            <p class="text-sm uppercase opacity-50">Location</p>
+            <p class="uppercase">Saudi Arabia</p>
+          </div>
+
+          <div class="bg-white px-8 py-5 rounded-[24px] flex flex-col gap-3">
+            <p class="text-sm uppercase opacity-50">Social Links</p>
+            <div class="flex gap-2">
+              <a href="#"><img src="/Images/social/facebook-circle.svg" alt="Facebook" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/insta-circle.svg" alt="Instagram" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/linkedin-circle.svg" alt="LinkedIn" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/twitter-circle.svg" alt="Twitter" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/youtube-circle.svg" alt="YouTube" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/tiktok-circle.svg" alt="TikTok" class="w-10 h-10"></a>
+              <a href="#"><img src="/Images/social/whatsapp-circle.svg" alt="WhatsApp" class="w-10 h-10"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer section -->
+  <footer class="footer pt-10 relative">
+
+    <!-- to top button -->
+    <div class="absolute bottom-2 left-2">
+      <a href="#hero"><img src="/Images/toTop_icon.svg" alt="To Top" class="w-40 h-40"></a>
+    </div>
+
+    <!-- footer content -->
+    <div class="container mx-auto px-4 flex justify-between">
+      <div class="uppercase space-y-10 transform translate-x-[140px]">
+        <div class="">
+          <p class="text-[#264BFF] opacity-80 text-[.625rem] mb-5">Info</p>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-[#264BFF]">Works</a></li>
+            <li><a href="#" class="text-[#264BFF]">Services</a></li>
+            <li><a href="#" class="text-[#264BFF]">About</a></li>
+            <li><a href="#" class="text-[#264BFF]">Contacts</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[#264BFF] opacity-80 text-[.625rem] mb-5">Contact</p>
+          <div class="flex flex-col gap-2">
+            <a href="mailto:widenext@gmail.com" class="text-[#264BFF]">widenext@gmail.com</a>
+            <a href="tel:+966555555555" class="text-[#264BFF]">+966555555555</a>
+            <div class="flex gap-2">
+              <a href="#"><img src="/Images/footer_social/facebook_footer.svg" alt="Facebook" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/instagram_footer.svg" alt="Instagram" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/linkedin_footer.svg" alt="LinkedIn" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/twitter_footer.svg" alt="Twitter" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/youtube_footer.svg" alt="YouTube" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/tiktok_footer.svg" alt="TikTok" class="w-7 h-7"></a>
+              <a href="#"><img src="/Images/footer_social/whatsapp_footer.svg" alt="WhatsApp" class="w-7 h-7"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uppercase max-w-[800px]">
+        <p class="text-[#264BFF] text-[.625rem] font-bold mb-5">Advertising & Events Solutions</p>
+        <div class="w-[600px]"><img src="/Images/footer-logo.png" alt="Widenext Logo" class=""></div>
+        <div class="text-[#264BFF] opacity-70 my-5 max-w-[566px]">
+          <p>OUR STRENGTH ISN'T IN OUR PROCESS ALONE.</p>
+          <p>IT'S IN THE PEOPLE WHO SHAPE IT.</p>
+          <p>A MULTICULTURAL TEAM OF AMBITIOUS MINDS, DRIVEN TO PUSH BOUNDARIES & REDEFINE STANDARDS.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- copyright and privacy policy -->
+    <div class="container mx-auto px-4 flex justify-between text-[#264BFF] mt-10 pb-10">
+      <p class="transform translate-x-[300px]">© 2026 — copyright</p>
+      <a href="#" class="block transform translate-x-[-300px]">Privacy Policy</a>
+    </div>
+
+    <!-- ellipse -->
+    <div class="absolute bottom-0 left-0 w-full">
+      <img src="/Images/footer-ellipse.png" alt="Ellipse" class="w-full h-full">
+    </div>
+
+  </footer>
+
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
