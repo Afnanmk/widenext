@@ -1,22 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>widenext</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
 
-  <style>
-    #navDrawer {
-      will-change: transform;
-    }
-  </style>
+   
 </head>
+<body>
 
 
-<body class="home font-sans scroll-smooth">
-  <!-- Header Section -->
+ 
+<!-- Header Section -->
 <header class="header absolute top-0 left-0 w-full z-50 pt-4">
     <div class="container mx-auto px-6 flex items-center justify-between text-white">
       <div class="logo w-[70px]">
@@ -81,36 +76,27 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Hero Section -->
   <section class="hero relative h-screen w-full overflow-hidden" id="hero">
     <!-- Video Background -->
     <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
-      <source src="/public/videos/blue-bg.mp4" type="video/mp4">
-      <!-- Add additional source formats for better browser support -->
-      <source src="/public/videos/blue-bg.mp4" type="video/webm">
+      <source src="/videos/blue-bg.mp4" type="video/mp4">
+      <source src="/videos/blue-bg.mp4" type="video/webm">
       Your browser does not support the video tag.
     </video>
-
     <!-- Content Container -->
     <div class="relative z-10 h-full flex flex-col justify-end items-center">
-
       <!-- Logo at Bottom - Full Width -->
       <div class="w-full">
-        <img src="/public/Images/logo-large-2x.png" alt="Company Logo" class="w-full h-auto">
+        <img src="/Images/logo-large-2x.png" alt="Company Logo" class="w-full h-auto">
       </div>
     </div>
   </section>
 
 
-  <!-- Works/projects section -->
-  <section class="works">
-
-  </section>
-
-
   <!-- Video section -->
-  <section class="video-section relative w-full flex items-center justify-center py-10">
+<section class="video-section relative w-full flex items-center justify-center py-10">
   
     <!-- Video Container - Animated on Scroll -->
     <div class="w-full flex items-center justify-center">
@@ -125,9 +111,8 @@
   </section>
 
 
-
-  <!-- Services section -->
-  <section class="services px-4">
+ <!-- Services section -->
+ <section class="services px-4">
     <div class="bg-[#264BFF] rounded-[30px]">
       <div class="container mx-auto px-4 py-10 md:py-20 space-y-10 md:space-y-20">
         <!-- STRATEGY -->
@@ -274,49 +259,49 @@
   </section>
 
 
- <!-- About section -->
+<!-- About section -->
 <section class="about relative py-10 md:py-20 bg-[#F7F7F7] overflow-hidden">
-  <div class="container mx-auto px-4 lg:px-8">
-    <h1 class="text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] leading-[2rem] text-[#264BFF] uppercase">About</h1>
-    
-    <!-- Video Container with Shadow Effect -->
-    <div class="relative mt-8">
-      <div id="aboutVideo" class="relative transform translate-y-[-100%] opacity-0 transition-all duration-1000 ease-out rounded-2xl overflow-hidden">
-        <video autoplay loop muted playsinline class="w-full h-[500px] object-cover">
-          <source src="/public/videos/5192157-sd_960_540_30fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        
-        <!-- Shadow Overlay Effect - Stronger fade with rounded corners -->
-        <div class="absolute inset-0 pointer-events-none" style="
-          background: 
-            linear-gradient(to right, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%),
-            linear-gradient(to bottom, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%);
-        "></div>
-      </div>
+    <div class="container mx-auto px-4 lg:px-8">
+      <h1 class="text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] leading-[2rem] text-[#264BFF] uppercase">About</h1>
       
-  
+      <!-- Video Container with Shadow Effect -->
+      <div class="relative mt-8">
+        <div id="aboutVideo" class="relative transform translate-y-[-100%] opacity-0 transition-all duration-1000 ease-out rounded-2xl overflow-hidden">
+          <video autoplay loop muted playsinline class="w-full h-[500px] object-cover">
+            <source src="/public/videos/5192157-sd_960_540_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+          <!-- Shadow Overlay Effect - Stronger fade with rounded corners -->
+          <div class="absolute inset-0 pointer-events-none" style="
+            background: 
+              linear-gradient(to right, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%),
+              linear-gradient(to bottom, rgba(247, 247, 247, 1) 0%, transparent 15%, transparent 85%, rgba(247, 247, 247, 1) 100%);
+          "></div>
+        </div>
+        
+    
 <!-- Logo and See More - Overlaying the video -->
 <div class="absolute top-[-50px] md:top-[-100px] right-0 md:right-[-50px] z-10 flex justify-end w-full p-8">
-  <div class="w-full max-w-[250px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[684px] flex flex-col items-end">
-    <img src="/Images/blue-logo-large.png" alt="widenext logo" class="w-full h-auto">
-    <a href="#" class="mt-4 underline text-[#41455D] font-bold text-sm sm:text-base md:text-lg">See More</a>
-  </div>
-</div>
-    
-    <div class="space-y-5 lg:space-y-10 text-[#676D8B] text-base md:text-[1.5rem] lg:text-[2rem] leading-[1.5rem] md:leading-[2rem] lg:leading-[3.3125rem]  mt-10">
-      <p>Our approach is driven by curiosity, research, and hands-on exploration. We support brands in navigating new
-        technologies and transforming them into meaningful, human-centered experiences that leave a lasting impact.
-      </p>
-      <p>Every solution we design is shaped through close collaboration with our clients and creative partners —
-        aligning ideas, refining details, and bringing visions to life with purpose and precision.</p>
+    <div class="w-full max-w-[250px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[684px] flex flex-col items-end">
+      <img src="/Images/blue-logo-large.png" alt="widenext logo" class="w-full h-auto">
+      <a href="#" class="mt-4 underline text-[#41455D] font-bold text-sm sm:text-base md:text-lg">See More</a>
     </div>
   </div>
-</section>
+      
+      <div class="space-y-5 lg:space-y-10 text-[#676D8B] text-base md:text-[1.5rem] lg:text-[2rem] leading-[1.5rem] md:leading-[2rem] lg:leading-[3.3125rem]  mt-10">
+        <p>Our approach is driven by curiosity, research, and hands-on exploration. We support brands in navigating new
+          technologies and transforming them into meaningful, human-centered experiences that leave a lasting impact.
+        </p>
+        <p>Every solution we design is shaped through close collaboration with our clients and creative partners —
+          aligning ideas, refining details, and bringing visions to life with purpose and precision.</p>
+      </div>
+    </div>
+  </section>
 
 
-  <!-- Sponsors section -->
-  <section class="sponsors py-10 space-y-20">
+ <!-- Sponsors section -->
+ <section class="sponsors py-10 space-y-20">
     <div class="overflow-hidden w-full">
       <div class="flex animate-scroll-horizontal whitespace-nowrap">
         <!-- Original logos -->
@@ -381,9 +366,8 @@
   </section>
 
 
-
-  <!-- Team Section -->
-  <section class="team bg-cover bg-center bg-no-repeat" style="background-image: url('/Images/team/team-bg.jpg');">
+ <!-- Team section responsive -->
+ <section class="team bg-cover bg-center bg-no-repeat" style="background-image: url('/Images/team/team-bg.jpg');">
     <div class="md:container md:mx-auto md:px-4 lg:px-14 flex flex-col md:flex-row items-center gap-10 md:gap-20 py-10 md:py-0">
      
       <!-- Mobile: Horizontal row (single row only) -->
@@ -630,11 +614,10 @@
       </div>
     </div>
 </section>
-
-
-
-  <!-- Contact section -->
-  <section class="contact py-10 bg-[#F3F4F9]">
+ 
+  
+ <!-- Contact section -->
+ <section class="contact py-10 bg-[#F3F4F9]">
     <div class="container mx-auto px-4 lg:px-8">
       <!-- title and description -->
       <div class="flex flex-col md:flex-row gap-5 md:gap-5 justify-center md:justify-between">
@@ -706,6 +689,7 @@
   </section>
 
 
+
   <!-- Footer section -->
   <footer class="footer pt-10 relative">
 
@@ -774,7 +758,10 @@
   </footer>
 
 
-  <script type="module" src="/src/main.js"></script>
-</body>
 
+    
+  <script type="module" src="/src/main.js"></script>
+
+ 
+</body>
 </html>

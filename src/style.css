@@ -73,23 +73,35 @@ body {
   
   
   /* ****************************** TEAM SECTION ANIMATION ********************************* // */
-  @keyframes scroll-vertical {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0); }
-  }
-  
-  .animate-scroll-vertical {
-    animation: scroll-vertical 20s linear infinite;
-  }
-  
-  @keyframes scroll-vertical-reverse {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-  }
-  
-  .animate-scroll-vertical-reverse {
-    animation: scroll-vertical-reverse 20s linear infinite;
-  }
+/* Desktop vertical animations */
+@keyframes scroll-vertical {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-scroll-vertical {
+  animation: scroll-vertical 20s linear infinite;
+}
+
+@keyframes scroll-vertical-reverse {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-scroll-vertical-reverse {
+  animation: scroll-vertical-reverse 20s linear infinite;
+}
+
+/* Mobile horizontal animations */
+@keyframes scroll-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 20s linear infinite;
+}
+
 
 
 

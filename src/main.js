@@ -119,3 +119,44 @@ const aboutObserverCallback = (entries) => {
 
 const aboutObserver = new IntersectionObserver(aboutObserverCallback, aboutObserverOptions);
 aboutObserver.observe(aboutSection);
+
+
+
+
+// ****************************** MOBILE MENU TOGGLE ********************************* //
+const menuToggle = document.getElementById('menuToggle');
+    const navDrawer = document.getElementById('navDrawer');
+    const closeMenu = document.getElementById('closeMenu');
+    
+    // Open drawer
+    menuToggle.addEventListener('click', () => {
+      navDrawer.classList.remove('-translate-x-full');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+    
+    // Close drawer
+    closeMenu.addEventListener('click', () => {
+      navDrawer.classList.add('-translate-x-full');
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Close on link click
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.add('-translate-x-full');
+        document.body.style.overflow = '';
+      });
+    });
+
+
+
+    // ****************************** TO TOP BUTTON ********************************* //
+    // To Top button functionality
+    const toTopBtn = document.getElementById('toTopBtn');
+    
+    toTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
