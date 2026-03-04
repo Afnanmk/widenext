@@ -92,10 +92,8 @@ observer.observe(videoSection);
 
 
   // ****************************** ABOUT SECTION ANIMATION ********************************* //
-  // About section video animation - only once
 const aboutVideo = document.getElementById('aboutVideo');
 const aboutSection = document.querySelector('.about');
-let hasAnimated = false; // Track if animation has played
 
 const aboutObserverOptions = {
   root: null,
@@ -105,14 +103,14 @@ const aboutObserverOptions = {
 
 const aboutObserverCallback = (entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting && !hasAnimated) {
+    if (entry.isIntersecting) {
       // Animate video sliding down from top
       aboutVideo.style.transform = 'translateY(0)';
       aboutVideo.style.opacity = '1';
-      
-      // Mark as animated and stop observing
-      hasAnimated = true;
-      aboutObserver.unobserve(aboutSection);
+    } else {
+      // Reset animation when out of view
+      aboutVideo.style.transform = 'translateY(-100%)';
+      aboutVideo.style.opacity = '0';
     }
   });
 };

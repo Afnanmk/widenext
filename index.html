@@ -11,11 +11,50 @@
     #navDrawer {
       will-change: transform;
     }
+
+        /* Loading screen styles */
+        @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: #264BFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loader.fade-out {
+      animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    /* Hide main content initially */
+    body.loading #mainContent {
+      visibility: hidden;
+    }
   </style>
 </head>
 
 
-<body class="home font-sans scroll-smooth">
+<body class="home font-sans scroll-smooth loading">
+   <!-- Loading Screen -->
+   <div id="loader" class="fixed w-full inset-0 z-50 flex items-center justify-center bg-blue-600">
+    <h1 class="text-white text-6xl md:text-8xl font-bold lowercase">
+        widenext
+    </h1>
+</div>
+
+  <div id="mainContent">
   <!-- Header Section -->
 <header class="header absolute top-0 left-0 w-full z-50 pt-4">
     <div class="container mx-auto px-6 flex items-center justify-between text-white">
@@ -772,9 +811,32 @@
     </div>
 
   </footer>
-
+</div>
 
   <script type="module" src="/src/main.js"></script>
+  <!-- Loading Screen Script -->
+  <script>
+    // Get elements
+    const loader = document.getElementById('loader');
+    const mainContent = document.getElementById('mainContent');
+    const body = document.body;
+
+    // Function to hide loader and show main content
+    function hideLoader() {
+      loader.classList.add('fade-out');
+      
+      setTimeout(() => {
+        loader.style.display = 'none';
+        body.classList.remove('loading');
+        mainContent.style.visibility = 'visible';
+      }, 500);
+    }
+
+    // Wait for page to fully load, then hide loader after 1 second
+    window.addEventListener('load', function() {
+      setTimeout(hideLoader, 1000); // Shows loader for 1 second after page loads
+    });
+  </script>
 </body>
 
 </html>
