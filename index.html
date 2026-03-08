@@ -11,55 +11,45 @@
     #navDrawer {
       will-change: transform;
     }
-
-        /* Loading screen styles */
-        @keyframes fadeOut {
-      0% {
-        opacity: 1;
-        visibility: visible;
-      }
-      100% {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background-color: #264BFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #loader.fade-out {
-      animation: fadeOut 0.5s ease-out forwards;
-    }
-
-    /* Hide main content initially */
-    body.loading #mainContent {
-      visibility: hidden;
-    }
   </style>
 </head>
 
 
 <body class="home font-sans scroll-smooth loading">
-   <!-- Loading Screen -->
-   <div id="loader" class="fixed w-full inset-0 z-50 flex items-center justify-center bg-blue-600">
-    <h1 class="text-white text-6xl md:text-8xl font-bold lowercase">
-        widenext
-    </h1>
+ <!-- ****************************** LOADING SCREEN ********************************* // -->
+<div id="loader" class="fixed w-full inset-0 z-50 flex items-center justify-center bg-[#264BFF] overflow-hidden">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white rounded-full blur-3xl animate-float-delayed"></div>
+  </div>
+  
+  <!-- Main content -->
+  <div class="relative text-center">
+      <h1 class="text-white text-6xl md:text-8xl font-bold lowercase mb-8 animate-fade-in">
+          <span class="inline-block animate-letter-1">w</span>
+          <span class="inline-block animate-letter-2">i</span>
+          <span class="inline-block animate-letter-3">d</span>
+          <span class="inline-block animate-letter-4">e</span>
+          <span class="inline-block animate-letter-5">n</span>
+          <span class="inline-block animate-letter-6">e</span>
+          <span class="inline-block animate-letter-7">x</span>
+          <span class="inline-block animate-letter-8">t</span>
+      </h1>
+      
+      <!-- Loading bar -->
+      <div class="w-64 h-1 bg-white/20 rounded-full overflow-hidden mx-auto">
+          <div class="h-full bg-white rounded-full animate-loading-bar"></div>
+      </div>
+  </div>
 </div>
 
   <div id="mainContent">
-  <!-- Header Section -->
+  <!-- ****************************** HEADER SECTION ********************************* // -->
 <header class="header absolute top-0 left-0 w-full z-50 pt-4">
     <div class="container mx-auto px-6 flex items-center justify-between text-white">
       <div class="logo w-[70px]">
-        <img src="/Images/logo.png" alt="Widenext Logo" />
+        <img src="/Images/logo.png" alt="Widenext Logo" width="70" height="70"/>
       </div>
       <nav class="nav hidden md:block">
         <ul class="nav-list uppercase font-bold text-base md:text-lg">
@@ -83,12 +73,12 @@
       </div>
       <!-- Mobile menu toggle -->
       <div class="md:hidden menu-toggle cursor-pointer relative z-50" id="menuToggle">
-        <img src="/public/Images/menu-svgrepo-com.svg" alt="Menu" class="w-10 h-10">
+        <img src="/public/Images/menu-svgrepo-com.svg" alt="Menu" class="w-10 h-10" width="40" height="40" loading="lazy">
       </div>
     </div>
   </header>
   
-  <!-- Mobile Navigation Drawer -->
+  <!-- ****************************** MOBILE NAVIGATION DRAWER ********************************* // -->
   <div id="navDrawer" class="fixed inset-0 bg-black bg-opacity-95 z-[60] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
     <div class="flex flex-col h-full p-8">
       <!-- Close button -->
@@ -121,10 +111,11 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero relative h-screen w-full overflow-hidden" id="hero">
+  <!-- ****************************** HERO SECTION ********************************* // -->
+  <section class="hero relative z-20 h-screen w-full overflow-hidden" id="hero">
     <!-- Video Background -->
-    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+    <video autoplay loop muted playsinline preload="auto"
+    poster="/public/videos/blue-bg-poster.jpg" class="absolute top-0 left-0 w-full h-full object-cover">
       <source src="/public/videos/blue-bg.mp4" type="video/mp4">
       <!-- Add additional source formats for better browser support -->
       <source src="/public/videos/blue-bg.mp4" type="video/webm">
@@ -136,25 +127,90 @@
 
       <!-- Logo at Bottom - Full Width -->
       <div class="w-full">
-        <img src="/public/Images/logo-large-2x.png" alt="Company Logo" class="w-full h-auto">
+        <img src="/public/Images/logo-large-2x.png" alt="Company Logo" class="w-full h-auto" width="1920"
+        height="auto"
+        fetchpriority="high">
       </div>
     </div>
   </section>
 
 
-  <!-- Works/projects section -->
-  <section class="works">
+<!-- ****************************** WORKS/PROJECTS SECTION ********************************* // -->
+<section class="works w-full max-w-[1556px] mx-auto px-4 relative z-10">
+  <div class="relative h-[630px]">
+          
+    <!-- Card 4 - Bottom (Music Commission) -->
+    <div class="project-card absolute bottom-0 left-0 right-0 w-full transition-all duration-[2000ms] ease-in-out origin-bottom">
+        <div class="relative overflow-hidden rounded-lg shadow-2xl">
+            <img src="/public/Images/projects/project_img_4.jpg" 
+                 alt="Saudi Tourism" 
+                 class="card-img w-full h-64 object-cover transition-all duration-[2000ms] ease-in-out"
+                 loading="lazy"
+                 width="1556"
+                 height="256">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-4">
+                <h3 class="text-white text-xl font-semibold">Music Commission</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card 3 - Third (Saudi Tourism Authority) -->
+    <div class="project-card absolute bottom-16 left-0 right-0 w-full transition-all duration-[2000ms] ease-in-out origin-bottom">
+        <div class="relative overflow-hidden rounded-lg shadow-2xl">
+            <img src="/public/Images/projects/project_img_3.jpg" 
+                 alt="Sports Dome" 
+                 class="card-img w-full h-64 object-cover transition-all duration-[2000ms] ease-in-out"
+                 loading="lazy"
+                 width="1556"
+                 height="256">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-4">
+                <h3 class="text-white text-xl font-semibold">Saudi Tourism Authority</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card 2 - Second (Sported Dome) -->
+    <div class="project-card absolute bottom-32 left-0 right-0 w-full transition-all duration-[2000ms] ease-in-out origin-bottom">
+        <div class="relative overflow-hidden rounded-lg shadow-2xl">
+            <img src="/public/Images/projects/project_img_2.jpg" 
+                 alt="Aseer" 
+                 class="card-img w-full h-64 object-cover transition-all duration-[2000ms] ease-in-out"
+                 loading="lazy"
+                 width="1556"
+                 height="256">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-4">
+                <h3 class="text-white text-xl font-semibold">Sported Dome</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Card 1 - Top (Aseer) -->
+    <div class="project-card absolute bottom-48 left-0 right-0 w-full transition-all duration-[2000ms] ease-in-out origin-bottom">
+        <div class="relative overflow-hidden rounded-lg shadow-2xl">
+            <img src="/public/Images/projects/project_img_1.jpg" 
+                 alt="Cultural Heritage" 
+                 class="card-img w-full h-96 object-cover transition-all duration-[2000ms] ease-in-out"
+                 loading="lazy"
+                 width="1556"
+                 height="256">
+            <div class="absolute bottom-0 left-0 right-0 px-6 py-6">
+              <h3 class="text-white text-xl font-semibold">Aseer</h3>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+  <a href="#" class="text-black w-fit text-base font-semibold block text-center mt-10 border border-[#264BFF] rounded-full py-3 px-6 mx-auto">See More</a>
+</section>
 
-  </section>
 
-
-  <!-- Video section -->
-  <section class="video-section relative w-full flex items-center justify-center py-10">
+  <!-- ****************************** VIDEO SECTION ********************************* // -->
+  <section class="video-section relative w-full flex items-center justify-center py-10 px-4">
   
     <!-- Video Container - Animated on Scroll -->
     <div class="w-full flex items-center justify-center">
       <div id="videoContainer" class="transform scale-[0.7] transition-all duration-1000 ease-out">
-        <video autoplay loop muted playsinline class="w-full max-w-4xl rounded-[30px] shadow-2xl">
+        <video autoplay loop muted playsinline class="w-full max-w-4xl rounded-[30px] shadow-2xl" preload="none" >
           <source src="/public/videos/5192157-sd_960_540_30fps.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -165,7 +221,7 @@
 
 
 
-  <!-- Services section -->
+  <!-- ****************************** SERVICES SECTION ********************************* // -->
   <section class="services px-4">
     <div class="bg-[#264BFF] rounded-[30px]">
       <div class="container mx-auto px-4 py-10 md:py-20 space-y-10 md:space-y-20">
@@ -178,7 +234,7 @@
           <div class="service-content flex flex-col lg:flex-row lg:gap-10 relative z-[0]">
             <!-- video -->
             <div class="rounded-2xl w-full lg:max-w-[650px] mt-8 lg:mt-0">
-              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline preload="none"
                 class="w-full h-full rounded-2xl"></video>
             </div>
             <!-- description -->
@@ -207,7 +263,7 @@
           <div class="service-content flex flex-col lg:flex-row lg:gap-10 relative z-[0]">
             <!-- video -->
             <div class="rounded-2xl w-full lg:max-w-[650px] mt-8 lg:mt-0">
-              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline preload="none"
                 class="w-full h-full rounded-2xl"></video>
             </div>
             <!-- description -->
@@ -235,7 +291,7 @@
           <div class="service-content flex flex-col lg:flex-row lg:gap-10 relative z-[0]">
             <!-- video -->
             <div class="rounded-2xl w-full lg:max-w-[650px] mt-8 lg:mt-0">
-              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline preload="none"
                 class="w-full h-full rounded-2xl"></video>
             </div>
             <!-- description -->
@@ -263,7 +319,7 @@
           <div class="service-content flex flex-col lg:flex-row lg:gap-10 relative z-[0]">
             <!-- video -->
             <div class="rounded-2xl w-full lg:max-w-[650px] mt-8 lg:mt-0">
-              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline preload="none"
                 class="w-full h-full rounded-2xl"></video>
             </div>
             <!-- description -->
@@ -291,7 +347,7 @@
           <div class="service-content flex flex-col lg:flex-row lg:gap-10 relative z-[0]">
             <!-- video -->
             <div class="rounded-2xl w-full lg:max-w-[650px] mt-8 lg:mt-0">
-              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline
+              <video src="/videos/573265_Business_Stock_3840x2160.mp4" autoplay loop muted playsinline preload="none"
                 class="w-full h-full rounded-2xl"></video>
             </div>
             <!-- description -->
@@ -313,7 +369,7 @@
   </section>
 
 
- <!-- About section -->
+ <!-- ****************************** ABOUT SECTION ********************************* // -->
 <section class="about relative py-10 md:py-20 bg-[#F7F7F7] overflow-hidden">
   <div class="container mx-auto px-4 lg:px-8">
     <h1 class="text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] leading-[2rem] text-[#264BFF] uppercase">About</h1>
@@ -338,11 +394,13 @@
 <!-- Logo and See More - Overlaying the video -->
 <div class="absolute top-[-50px] md:top-[-100px] right-0 md:right-[-50px] z-10 flex justify-end w-full p-8">
   <div class="w-full max-w-[250px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[684px] flex flex-col items-end">
-    <img src="/Images/blue-logo-large.png" alt="widenext logo" class="w-full h-auto">
+    <img src="/Images/blue-logo-large.png" alt="widenext logo" class="w-full h-auto" loading="lazy"
+    width="684"
+    height="auto">>
     <a href="#" class="mt-4 underline text-[#41455D] font-bold text-sm sm:text-base md:text-lg">See More</a>
   </div>
 </div>
-    
+     <!-- text content -->
     <div class="space-y-5 lg:space-y-10 text-[#676D8B] text-base md:text-[1.5rem] lg:text-[2rem] leading-[1.5rem] md:leading-[2rem] lg:leading-[3.3125rem]  mt-10">
       <p>Our approach is driven by curiosity, research, and hands-on exploration. We support brands in navigating new
         technologies and transforming them into meaningful, human-centered experiences that leave a lasting impact.
@@ -354,74 +412,73 @@
 </section>
 
 
-  <!-- Sponsors section -->
+  <!-- ****************************** SPONSORS SECTION ********************************* // -->
   <section class="sponsors py-10 space-y-20">
     <div class="overflow-hidden w-full">
       <div class="flex animate-scroll-horizontal whitespace-nowrap">
         <!-- Original logos -->
-        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10" loading="lazy" width="auto" height="80">
         <!-- Duplicate logos for seamless looping -->
-        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10 " loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10" loading="lazy" width="auto" height="80">
       </div>
     </div>
 
     <div class="overflow-hidden w-full">
       <div class="flex animate-scroll-horizontal-reverse whitespace-nowrap">
         <!-- Original logos -->
-        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10" loading="lazy" width="auto" height="80">
         <!-- Duplicate logos for seamless looping -->
-        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10">
-        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10">
+        <img src="/Images/sponsors/logo-1.png" alt="Sponsor 1" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-2.png" alt="Sponsor 2" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-3.png" alt="Sponsor 3" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-4.png" alt="Sponsor 4" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-5.png" alt="Sponsor 5" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-6.png" alt="Sponsor 6" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-7.png" alt="Sponsor 7" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-8.png" alt="Sponsor 8" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-9.png" alt="Sponsor 9" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-10.png" alt="Sponsor 10" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-11.png" alt="Sponsor 11" class="h-20 mr-10" loading="lazy" width="auto" height="80">
+        <img src="/Images/sponsors/logo-12.png" alt="Sponsor 12" class="h-20 mr-10" loading="lazy" width="auto" height="80">
       </div>
     </div>
   </section>
 
 
-
-  <!-- Team Section -->
+  <!-- ****************************** TEAM SECTION ********************************* // -->
   <section class="team bg-cover bg-center bg-no-repeat" style="background-image: url('/Images/team/team-bg.jpg');">
     <div class="md:container md:mx-auto md:px-4 lg:px-14 flex flex-col md:flex-row items-center gap-10 md:gap-20 py-10 md:py-0">
      
@@ -665,15 +722,20 @@
       <!-- Team section title and description -->
       <div class="container mx-auto px-4 max-w-[800px] flex flex-col gap-10 md:gap-28">
         <h1 class="text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[6rem] leading-[5.3125rem] text-white uppercase font-bold transform-none md:transform md:translate-x-[-140px]">Our Team</h1>
-        <p class="max-w-[542px] text-white text-base sm:text-[1.25rem] lg:text-[1.5rem] leading-[1.5rem] sm:leading-[2rem] lg:leading-[2.4375rem] opacity-80">We are multicultural by design with diverse perspectives, global expertise, and deep local market understanding, where international thinking meets on-the-ground insight to create work that truly resonates.</p>
+        <p class="max-w-[842px] text-white text-base sm:text-[1.25rem] lg:text-[1.5rem] leading-[1.5rem] sm:leading-[2rem] lg:leading-[2.4375rem] opacity-80">We are multicultural by design with diverse perspectives, global expertise, and deep local market understanding, where international thinking meets on-the-ground insight to create work that truly resonates.</p>
       </div>
     </div>
 </section>
 
 
 
-  <!-- Contact section -->
-  <section class="contact py-10 bg-[#F3F4F9]">
+  <!-- ****************************** CONTACT SECTION ********************************* // -->
+  <section class="relative overflow-hidden contact py-10 bg-[#F3F4F9]">
+    <div class="absolute top-[-30px] right-0 transform translate-x-[100px] w-full h-full space-y-14 z-10">
+      <img src="/Images/vector01-contact.svg" alt="Contact Background Vector" class="absolute top-0 left-0 w-full h-full">
+      <img src="/Images/vector02-contact.svg" alt="Contact Background Vector" class="absolute top-0 left-0 w-full h-full">
+
+    </div>
     <div class="container mx-auto px-4 lg:px-8">
       <!-- title and description -->
       <div class="flex flex-col md:flex-row gap-5 md:gap-5 justify-center md:justify-between">
@@ -683,7 +745,7 @@
       </div>
 
       <!-- form and info -->
-      <div class="flex flex-col md:flex-row gap-10 md:gap-20 mt-10 justify-center md:justify-between">
+      <div class="relative z-20 flex flex-col md:flex-row gap-10 md:gap-20 mt-10 justify-center md:justify-between">
         <div class="w-full">
           <form action="" class="flex flex-col gap-9">
             <div class="flex gap-4">
@@ -745,7 +807,7 @@
   </section>
 
 
-  <!-- Footer section -->
+  <!-- ****************************** FOOTER SECTION ********************************* // -->
   <footer class="footer pt-10 relative">
 
     <!-- footer content -->
@@ -814,29 +876,6 @@
 </div>
 
   <script type="module" src="/src/main.js"></script>
-  <!-- Loading Screen Script -->
-  <script>
-    // Get elements
-    const loader = document.getElementById('loader');
-    const mainContent = document.getElementById('mainContent');
-    const body = document.body;
-
-    // Function to hide loader and show main content
-    function hideLoader() {
-      loader.classList.add('fade-out');
-      
-      setTimeout(() => {
-        loader.style.display = 'none';
-        body.classList.remove('loading');
-        mainContent.style.visibility = 'visible';
-      }, 500);
-    }
-
-    // Wait for page to fully load, then hide loader after 1 second
-    window.addEventListener('load', function() {
-      setTimeout(hideLoader, 1000); // Shows loader for 1 second after page loads
-    });
-  </script>
 </body>
 
 </html>
