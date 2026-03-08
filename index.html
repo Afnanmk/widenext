@@ -17,31 +17,19 @@
 
 <body class="home font-sans scroll-smooth loading">
  <!-- ****************************** LOADING SCREEN ********************************* // -->
-<div id="loader" class="fixed w-full inset-0 z-50 flex items-center justify-center bg-[#264BFF] overflow-hidden">
-  <!-- Animated background elements -->
-  <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-float"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white rounded-full blur-3xl animate-float-delayed"></div>
-  </div>
+ <div id="loader" class="fixed w-full inset-0 z-50 flex items-center justify-center bg-white overflow-hidden">
+  <div class="relative flex w-full h-full">
+    <img src="/Images/logo-loader.png" alt="Widenext Logo" width="384" height="384" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-6xl md:text-8xl font-bold lowercase text-center z-10"></img>
   
-  <!-- Main content -->
-  <div class="relative text-center">
-      <h1 class="text-white text-6xl md:text-8xl font-bold lowercase mb-8 animate-fade-in">
-          <span class="inline-block animate-letter-1">w</span>
-          <span class="inline-block animate-letter-2">i</span>
-          <span class="inline-block animate-letter-3">d</span>
-          <span class="inline-block animate-letter-4">e</span>
-          <span class="inline-block animate-letter-5">n</span>
-          <span class="inline-block animate-letter-6">e</span>
-          <span class="inline-block animate-letter-7">x</span>
-          <span class="inline-block animate-letter-8">t</span>
-      </h1>
-      
-      <!-- Loading bar -->
-      <div class="w-64 h-1 bg-white/20 rounded-full overflow-hidden mx-auto">
-          <div class="h-full bg-white rounded-full animate-loading-bar"></div>
-      </div>
+  <!-- blue bg elements -->
+   <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+     <div class="blue-block w-[384px] h-full bg-[#264BFF]" style="animation-delay: 0s"></div>
+     <div class="blue-block w-[384px] h-full bg-[#264BFF]" style="animation-delay: 0.3s"></div>
+     <div class="blue-block w-[384px] h-full bg-[#264BFF]" style="animation-delay: 0.6s"></div>
+     <div class="blue-block w-[384px] h-full bg-[#264BFF]" style="animation-delay: 0.9s"></div>
+     <div class="blue-block w-[384px] h-full bg-[#264BFF]" style="animation-delay: 1.2s"></div>
   </div>
+</div>
 </div>
 
   <div id="mainContent">
@@ -68,8 +56,21 @@
         </ul>
       </nav>
      
-      <div class="hidden md:block">
-        <a href="mailto:widenext@gmail.com" class="email-link">widenext@gmail.com</a>
+      <div class="hidden md:inline-flex md:items-center md:gap-2 self-end">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_2037_136)">
+          <path d="M1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M5.625 9C5.625 6.91142 5.98058 4.90838 6.61351 3.43153C7.24645 1.95469 8.10489 1.125 9 1.125C9.89511 1.125 10.7535 1.95469 11.3865 3.43153C12.0194 4.90838 12.375 6.91142 12.375 9C12.375 11.0886 12.0194 13.0916 11.3865 14.5685C10.7535 16.0453 9.89511 16.875 9 16.875C8.10489 16.875 7.24645 16.0453 6.61351 14.5685C5.98058 13.0916 5.625 11.0886 5.625 9Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M1.6875 11.625H16.3125M1.6875 6.375H16.3125" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_2037_136">
+          <rect width="18" height="18" fill="white"/>
+          </clipPath>
+          </defs>
+          </svg>
+          
+        <a href="mailto:widenext@gmail.com" class="email-link uppercase">widenext@gmail.com</a>
       </div>
       <!-- Mobile menu toggle -->
       <div class="md:hidden menu-toggle cursor-pointer relative z-50" id="menuToggle">

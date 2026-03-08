@@ -4,22 +4,33 @@ import "./style.css";
 const loader = document.getElementById("loader");
 const mainContent = document.getElementById("mainContent");
 const body = document.body;
+const blueBlocks = document.querySelectorAll(".blue-block");
 
 // Function to hide loader and show main content
 function hideLoader() {
-  loader.classList.add("fade-out");
-
+  // Trigger blue blocks animation
+  blueBlocks.forEach(block => {
+    block.classList.add("animate-out");
+  });
+  
+  // Wait for all blocks to finish animating (1.2s animation + 1.2s max delay)
   setTimeout(() => {
-    loader.style.display = "none";
-    body.classList.remove("loading");
-    mainContent.style.visibility = "visible";
-  }, 500);
+    loader.classList.add("fade-out");
+    
+    setTimeout(() => {
+      loader.style.display = "none";
+      body.classList.remove("loading");
+      mainContent.style.visibility = "visible";
+    }, 500);
+  }, 2400);
 }
 
 // Wait for page to fully load, then hide loader after 1 second
 window.addEventListener("load", function () {
-  setTimeout(hideLoader, 2000);
+  setTimeout(hideLoader, 1000);
 });
+
+
 
 
 
@@ -95,44 +106,48 @@ document.addEventListener("keydown", function (e) {
 
 // ****************************** VIDEO SECTION ANIMATION ********************************* //
 // Video scroll animation - only once
-const videoContainer = document.getElementById("videoContainer");
-const videoSection = document.querySelector(".video-section");
-let videoHasAnimated = false; // Track if animation has played
-let maxScaleReached = 0.7; // Track the maximum scale reached
+// const videoContainer = document.getElementById("videoContainer");
+// const videoSection = document.querySelector(".video-section");
+// let videoHasAnimated = false; // Track if animation has played
+// let maxScaleReached = 0.7; // Track the maximum scale reached
 
-const observerOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: [0, 0.3, 0.5, 0.7, 1],
-};
+// const observerOptions = {
+//   root: null,
+//   rootMargin: "0px",
+//   threshold: [0, 0.3, 0.5, 0.7, 1],
+// };
 
-const observerCallback = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting && !videoHasAnimated) {
-      const scrollProgress = entry.intersectionRatio;
+// const observerCallback = (entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting && !videoHasAnimated) {
+//       const scrollProgress = entry.intersectionRatio;
 
-      // Calculate scale: from 0.7 to 1 based on scroll progress
-      const scale = 0.7 + scrollProgress * 0.3;
+//       // Calculate scale: from 0.7 to 1 based on scroll progress
+//       const scale = 0.7 + scrollProgress * 0.3;
 
-      // Only increase scale, never decrease
-      if (scale > maxScaleReached) {
-        maxScaleReached = scale;
-        videoContainer.style.transform = `scale(${Math.min(scale, 1)})`;
-      }
+//       // Only increase scale, never decrease
+//       if (scale > maxScaleReached) {
+//         maxScaleReached = scale;
+//         videoContainer.style.transform = `scale(${Math.min(scale, 1)})`;
+//       }
 
-      // When fully in view, expand to full width and stop observing
-      if (scrollProgress > 0.5) {
-        videoContainer.classList.add("video-expanded");
-        videoContainer.style.transform = "scale(1)";
-        videoHasAnimated = true;
-        observer.unobserve(videoSection);
-      }
-    }
-  });
-};
+//       // When fully in view, expand to full width and stop observing
+//       if (scrollProgress > 0.5) {
+//         videoContainer.classList.add("video-expanded");
+//         videoContainer.style.transform = "scale(1)";
+//         videoHasAnimated = true;
+//         observer.unobserve(videoSection);
+//       }
+//     }
+//   });
+// };
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
-observer.observe(videoSection);
+// const observer = new IntersectionObserver(observerCallback, observerOptions);
+// observer.observe(videoSection);
+
+
+
+
 
 // ****************************** ABOUT SECTION ANIMATION ********************************* //
 const aboutVideo = document.getElementById("aboutVideo");
@@ -167,61 +182,63 @@ aboutObserver.observe(aboutSection);
 
 
 // ****************************** PROJECT CARD ANIMATION ********************************* //
-// Intersection Observer to trigger animation when section enters viewport
-const projectCardObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const cards = entry.target.querySelectorAll(".project-card");
-        const cardImgs = entry.target.querySelectorAll(".card-img");
+import "./work-scroll.js";
 
-        // Card 1: height grows to 600px, THEN scales down and moves up
-        setTimeout(() => {
-          cardImgs[3].style.height = "600px";
-        }, 500);
 
-        setTimeout(() => {
-          cards[3].style.transform = "translateY(-120%) scale(0.7)";
-          cards[3].style.opacity = "0";
-        }, 2500);
+// const projectCardObserver = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         const cards = entry.target.querySelectorAll(".project-card");
+//         const cardImgs = entry.target.querySelectorAll(".card-img");
 
-        // Card 2: height grows to 600px, THEN scales down and moves up
-        setTimeout(() => {
-          cardImgs[2].style.height = "600px";
-        }, 3000);
+//         // Card 1: height grows to 600px, THEN scales down and moves up
+//         setTimeout(() => {
+//           cardImgs[3].style.height = "600px";
+//         }, 500);
 
-        setTimeout(() => {
-          cards[2].style.transform = "translateY(-120%) scale(0.7)";
-          cards[2].style.opacity = "0";
-        }, 5000);
+//         setTimeout(() => {
+//           cards[3].style.transform = "translateY(-120%) scale(0.7)";
+//           cards[3].style.opacity = "0";
+//         }, 2500);
 
-        // Card 3: height grows to 600px, THEN scales down and moves up
-        setTimeout(() => {
-          cardImgs[1].style.height = "600px";
-        }, 5500);
+//         // Card 2: height grows to 600px, THEN scales down and moves up
+//         setTimeout(() => {
+//           cardImgs[2].style.height = "600px";
+//         }, 3000);
 
-        setTimeout(() => {
-          cards[1].style.transform = "translateY(-120%) scale(0.7)";
-          cards[1].style.opacity = "0";
-        }, 7500);
+//         setTimeout(() => {
+//           cards[2].style.transform = "translateY(-120%) scale(0.7)";
+//           cards[2].style.opacity = "0";
+//         }, 5000);
 
-        // Card 4 grows to fill the space
-        setTimeout(() => {
-          cardImgs[0].style.height = "600px";
-        }, 8000);
+//         // Card 3: height grows to 600px, THEN scales down and moves up
+//         setTimeout(() => {
+//           cardImgs[1].style.height = "600px";
+//         }, 5500);
 
-        // Unobserve after animation triggers once
-        projectCardObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.3,
-  }
-);
+//         setTimeout(() => {
+//           cards[1].style.transform = "translateY(-120%) scale(0.7)";
+//           cards[1].style.opacity = "0";
+//         }, 7500);
 
-const worksSection = document.querySelector(".works");
-projectCardObserver.observe(worksSection);
+//         // Card 4 grows to fill the space
+//         setTimeout(() => {
+//           cardImgs[0].style.height = "600px";
+//         }, 8000);
+
+//         // Unobserve after animation triggers once
+//         projectCardObserver.unobserve(entry.target);
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.3,
+//   }
+// );
+
+// const worksSection = document.querySelector(".works");
+// projectCardObserver.observe(worksSection);
 
 
 
