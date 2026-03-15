@@ -60,6 +60,9 @@ navDrawer.querySelectorAll("a").forEach((link) => {
   });
 });
 
+
+
+
 // ****************************** SERVICES SECTION ********************************* //
 // Get all service items
 const serviceItems = document.querySelectorAll(".service-item");
@@ -103,6 +106,8 @@ document.addEventListener("keydown", function (e) {
     serviceItems[activeIndex - 1].querySelector(".service-title").click();
   }
 });
+
+
 
 // ****************************** VIDEO SECTION ANIMATION ********************************* //
 // Video scroll animation - only once

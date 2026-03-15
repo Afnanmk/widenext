@@ -1,20 +1,21 @@
 import { scroll } from "motion";
 
 window.addEventListener("load", () => {
-
   // ======================================================
   // WORKS / CARDS — scroll-linked pinned animation
   // ======================================================
   const section = document.querySelector(".works");
   if (!section) return;
 
-  const SCROLL_DISTANCE = window.innerHeight * 3;
+  // INCREASED for slower upward movement
+  const SCROLL_DISTANCE = window.innerHeight * 7; // Changed from 5 to 7
 
   const stickyWrap = document.createElement("div");
   stickyWrap.style.position = "relative";
   stickyWrap.style.height   = SCROLL_DISTANCE + section.offsetHeight + "px";
   section.parentNode.insertBefore(stickyWrap, section);
   stickyWrap.appendChild(section);
+
   section.style.position = "sticky";
   section.style.top      = "0";
 
@@ -33,11 +34,30 @@ window.addEventListener("load", () => {
     { card: cards[2], img: cardImgs[2], h0: origH[2] },
     { card: cards[1], img: cardImgs[1], h0: origH[1] },
   ];
+
   const lastImg = cardImgs[0];
   const lastH0  = origH[0];
 
-  function lerp(a, b, t) {
+  // Smoother easing for height (ease-out-quad for gentle deceleration)
+  function easeOutQuad(t) {
+    return 1 - (1 - t) * (1 - t);
+  }
+
+  // Extra smooth easing for upward movement (ease-in-out-quart)
+  function easeInOutQuart(t) {
+    return t < 0.5
+      ? 8 * t * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 4) / 2;
+  }
+
+  function lerp(a, b, t, isHeight = false) {
     t = Math.max(0, Math.min(1, t));
+    // Apply different easing based on what's being animated
+    if (isHeight) {
+      t = easeOutQuad(t); // Smooth for height expansion
+    } else {
+      t = easeInOutQuart(t); // Ultra smooth for upward movement
+    }
     return a + (b - a) * t;
   }
 
@@ -52,6 +72,7 @@ window.addEventListener("load", () => {
         worksComplete = true;
         startVideoAnimation();
       }
+
       // If user scrolls back up, reset the flag
       if (worksComplete && p < 0.95) {
         worksComplete = false;
@@ -70,34 +91,42 @@ window.addEventListener("load", () => {
 
         if (p >= segEnd) {
           img.style.height     = "600px";
-          card.style.transform = "translateY(-120%) scale(0.7)";
+          card.style.transform = "translateY(-100%) scale(0.85)";
           card.style.opacity   = "0";
           return;
         }
 
         const local = (p - segStart) / (segEnd - segStart);
 
-        if (local < 0.4) {
-          const t = local / 0.4;
-          img.style.height     = lerp(h0, 600, t) + "px";
+        // Height expansion phase (first 60% of segment)
+        if (local < 0.6) { // Changed from 0.5 to 0.6
+          const t = local / 0.6;
+          img.style.height     = lerp(h0, 600, t, true) + "px";
           card.style.transform = "translateY(0px) scale(1)";
           card.style.opacity   = "1";
-        } else {
-          const t = (local - 0.4) / 0.6;
+        } 
+        // Upward movement phase (last 40% of segment - SLOWER)
+        else {
+          const t = (local - 0.6) / 0.4; // Changed from 0.5 to 0.4 for slower movement
           img.style.height     = "600px";
-          card.style.transform = `translateY(${lerp(0, -120, t)}%) scale(${lerp(1, 0.7, t)})`;
-          card.style.opacity   = String(lerp(1, 0, t));
+          // Apply smooth easing to upward movement (false = use movement easing)
+          card.style.transform = `translateY(${lerp(0, -100, t, false)}%) scale(${lerp(1, 0.85, t, false)})`;
+          card.style.opacity   = String(lerp(1, 0, t, false));
         }
       });
 
-      if (p > 0.66) {
-        lastImg.style.height = lerp(lastH0, 600, Math.min(1, (p - 0.66) / 0.34)) + "px";
+      // Last card animation - starts only after 3rd card is nearly done
+      if (p > 0.95) {
+        const lastProgress = (p - 0.95) / 0.05;
+        lastImg.style.height = lerp(lastH0, 600, lastProgress, true) + "px";
       } else {
         lastImg.style.height = lastH0 + "px";
       }
     },
     { target: stickyWrap, offset: ["start start", "end end"] }
   );
+
+
 
 
   // ======================================================
